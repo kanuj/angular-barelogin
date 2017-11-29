@@ -11,9 +11,10 @@ import { AuthService } from './auth.service';
 import { SessionHelper } from './session-helper';
 import { UserSectionComponent } from './user-section/user-section.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AuthGuard } from './auth-guard';
 
 const appRoutes: Routes = [
-  { path: 'user', component: UserSectionComponent },
+  { path: 'user', component: UserSectionComponent, canActivate: [AuthGuard] },
   { path: '', component: LoginComponent },
   { path: '**', component: NotFoundComponent }
 ];
@@ -31,7 +32,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AuthService, SessionHelper, StorageAdapter],
+  providers: [AuthService, SessionHelper, StorageAdapter, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
