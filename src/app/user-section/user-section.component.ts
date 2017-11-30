@@ -18,8 +18,12 @@ export class UserSectionComponent implements OnInit {
   }
 
   logoutUser() {
-    try { this.storage.removeItem("SESSID"); this.router.navigate(['']); }
-    catch (err) { console.log(err); }
+    try {
+      this.storage.removeItem('SESSID');
+      this.router.navigate(['']);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
 }

@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   async processLogin(loginForm: NgForm) {
     this._form = loginForm.value;
-    let response = await this.service.authLogin(this.username, this.password);
+    const response = await this.service.authLogin(this.username, this.password);
 
     if (response.auth) {
       this.router.navigate(['user']);

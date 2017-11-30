@@ -17,12 +17,20 @@ export class StorageAdapter {
     }
 
     setItem(key: any, value: any): boolean {
-        try { this.storage.setItem(key, value); return true; }
-        catch (err) { return false; }
+        try {
+            this.storage.setItem(key, value);
+            return true;
+        } catch (err) {
+            return false;
+        }
     }
 
     removeItem(key: any): boolean {
-        try { this.storage.removeItem(key); return true; }
-        catch (err) { return false; }
+        try {
+            this.storage.removeItem(key);
+            return true;
+        } catch (err) {
+            return false;
+        }
     }
 }
